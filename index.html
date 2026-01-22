@@ -2,22 +2,86 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Моё приложение</title>
+    <title>Выбор курсов магии</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ОБЯЗАТЕЛЬНО -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #1b1b2f, #3a3a5a);
+            color: #f0e6d2;
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #fffa;
+        }
+        .course-button {
+            display: block;
+            width: 80%;
+            max-width: 300px;
+            margin: 15px auto;
+            padding: 15px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .course-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        .description {
+            font-size: 0.9em;
+            color: #ccc;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Привет! Это WebApp</h2>
-<button onclick="alertUser()">Нажми</button>
+<h2>Добро пожаловать в Академию магии!</h2>
+
+<button class="course-button" onclick="selectCourse('Магия боёвки')">
+    🔮 Магия боёвки
+</button>
+<div class="description">Изучай заклинания для сражений и защиты.</div>
+
+<button class="course-button" onclick="selectCourse('Зелеварение')">
+    🧪 Зелеварение
+</button>
+<div class="description">Создавай зелья, эликсиры и яды.</div>
+
+<button class="course-button" onclick="selectCourse('Тёмная магия')">
+    🌑 Тёмная магия
+</button>
+<div class="description">Осваивай секретные заклинания тьмы.</div>
+
+<button class="course-button" onclick="selectCourse('Воздушная магия')">
+    🌬️ Воздушная магия
+</button>
+<div class="description">Контролируй ветер, штормы и облака.</div>
+
+<button class="course-button" onclick="selectCourse('Боевые искусства')">
+    ⚔️ Боевые искусства
+</button>
+<div class="description">Оттачивай навыки меча, лука и доспехов.</div>
 
 <script>
     const tg = window.Telegram.WebApp;
     tg.ready();
 
-    function alertUser() {
-        alert("Работает!");
+    function selectCourse(course) {
+        tg.sendData(`Вы выбрали курс: ${course}`);
+        alert(`Вы выбрали курс: ${course}`);
     }
 </script>
 
