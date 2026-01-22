@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моё приложение</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ОБЯЗАТЕЛЬНО -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+<h2>Привет! Это WebApp</h2>
+<button onclick="alertUser()">Нажми</button>
+
+<script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+
+    function alertUser() {
+        alert("Работает!");
+    }
+</script>
+
+</body>
+</html>
